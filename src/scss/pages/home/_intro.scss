@@ -103,16 +103,24 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        transition: color .2s linear;
 
         &:hover {
-            color: $text-dark-gray;
+
+            span {
+                transform: scale(1.2);
+            }
+            
+            i {
+                transform: translateY(25px) scale(1.2);
+                color: $blue;
+            }
         }
 
         span {
             display: block;
             font-size: 14px;
             margin: 0 0 15px;
+            transition: transform .5s linear;
 
             @include breakpoint($tablet-bp) {
                 font-size: 12px;
@@ -127,6 +135,7 @@
 
         i {
             font-size: 16px;
+            transition: transform .8s ease-in-out .2s, color .8s linear .2s;
 
             @include breakpoint($tablet-bp) {
                 font-size: 15px;
