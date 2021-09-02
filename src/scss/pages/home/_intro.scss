@@ -1,0 +1,140 @@
+.intro {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title-holder {
+        max-width: 330;
+        margin: 0 0 50px;
+        text-align: center;
+        color: $text-white;
+    }
+
+    &__title {
+        font-family: $josefin_sans-700;
+        font-size: 48px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        margin: 0 0 15px;
+
+        @include breakpoint($tablet-bp) {
+            font-size: 38px;
+            letter-spacing: .07em;
+            margin: 0 0 10px;
+        }
+    }
+
+    &__subtitle {
+        font-family: $josefin_sans-400;
+        font-size: 22px;
+        letter-spacing: .31em;
+
+        @include breakpoint($tablet-bp) {
+            font-size: 18px;
+            letter-spacing: .2em;
+            
+        }
+    }
+
+    &__form {
+        display: flex;
+        margin: 0 0 120px;
+
+        @include breakpoint($tablet-bp) {
+            margin: 0 0 80px;
+        }
+
+        @include breakpoint($mobile-bp) {
+            margin: 0 0 50px;
+        }
+    }
+
+    &__search {
+        width: 500px;
+        font-size: 14px;
+        padding: 15px;
+        font-family: $josefin_sans-400;
+        color: $text-dark-gray;
+        background-color: $text-white;
+        border: 2px solid $text-dark-white;
+
+        &::placeholder {
+            font-size: 14px;
+            text-align: center;
+            font-family: $josefin_sans-400;
+            color: $text-dark-gray;
+
+            @include breakpoint($tablet-bp) {
+                font-size: 12px;
+            }
+    
+            @include breakpoint($mobile-bp) {
+                font-size: 10px;
+            }
+        }
+
+        @include breakpoint($tablet-bp) {
+            width: 300px;
+            padding: 10px;
+        }
+
+        @include breakpoint($mobile-bp) {
+            width: 160px;
+            padding: 5px;
+        }
+    }
+
+    &__scroll {
+        color: $text-white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: color .2s linear;
+
+        &:hover {
+            color: $text-dark-gray;
+        }
+
+        span {
+            display: block;
+            font-size: 14px;
+            margin: 0 0 15px;
+
+            @include breakpoint($tablet-bp) {
+                font-size: 12px;
+                margin: 0 0 12px;
+            }
+        
+            @include breakpoint($mobile-bp) {
+                font-size: 10px;
+                margin: 0 0 10px;
+            }
+        }
+
+        i {
+            font-size: 16px;
+
+            @include breakpoint($tablet-bp) {
+                font-size: 15px;
+            }
+        
+            @include breakpoint($mobile-bp) {
+                font-size: 14px;
+            }
+        }
+    }
+}

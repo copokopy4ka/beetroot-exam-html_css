@@ -1,0 +1,154 @@
+.header {
+    background-color: $blue;
+    position: absolute;
+    top: calc(100vh - 80px);
+    right: 0;
+    left: 0;
+
+    @include breakpoint($tablet-bp) {
+        top: calc(100vh - 65px);
+    }
+
+    @include breakpoint($mobile-bp) {
+        top: calc(100vh - 50px);
+    }
+
+    &.active {
+       .header__list {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        transform: translate(50%, 0) scale(1);
+       }
+    }
+
+    &__holder {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        @include breakpoint($tablet-bp) {
+            height: 65px;
+        }
+    
+        @include breakpoint($mobile-bp) {
+            height: 50px;
+        }
+    }
+
+    &__logo {
+        font-family: $josefin_sans-700;
+        font-size: 24px;
+        color: $text-white;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+
+        @include breakpoint($tablet-bp) {
+            font-size: 21px;
+            letter-spacing: .08em;
+        }
+    
+        @include breakpoint($mobile-bp) {
+            font-size: 18px;
+            letter-spacing: .06em;
+        }
+    }
+
+    &__list {
+        display: flex;
+        
+        @include breakpoint($tablet-bp) {
+            visibility: hidden;
+            opacity: 0;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            bottom: 90px;
+            right: 50%;
+            padding: 30px 0;
+            transform: translate(50%, 100%) scale(0);
+            width: 65%;
+            background-color: rgba(84, 115, 253, .85);
+            transition: all .3s linear;
+        }
+
+        @include breakpoint($mobile-bp) {
+            width: 80%;
+        }
+    }
+
+    &__item {
+        margin: 0 0 0 40px;
+
+        @include breakpoint($tablet-bp) {
+            margin: 0;
+            width: 80%;
+        }
+    }
+
+    &__link {
+        padding: 20px 0;
+        text-transform: uppercase;
+        font-family: $aleo-400;
+        font-size: 14px;
+        color: $text-white;
+        transition: transform .2s linear, opacity .2s linear;
+
+        &:hover {
+            transform: scale(1.2);
+            opacity: .6;
+        }
+    }
+
+    .burger-btn {
+        width: 30px;
+        height: 20px;
+        position: absolute;
+        bottom: 50%;
+        right: 50px;
+        transform: translateY(50%);
+        background-color: transparent;
+        outline: none;
+        border: 0;
+        transition: all .3s linear;
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+
+        @include breakpoint($tablet-bp) {
+            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        span,
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background-color: $text-white;
+            transition: all .3s linear;
+        }
+
+        span {
+            top: 50%;
+            left: 5px;
+            width: 20px;
+            transform: translateY(-50%);
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+    }
+}
