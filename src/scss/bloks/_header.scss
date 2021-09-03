@@ -1,18 +1,35 @@
 .header {
     background-color: $blue;
     position: sticky;
-    top: 0;
+    top: -1px;
     right: 0;
     left: 0;
     z-index: 5;
 
     &.active {
-       .header__list {
-        display: flex;
-        opacity: 1;
-        transform: translate(50%, 0);
-        pointer-events: auto;
-       }
+        .header__list {
+            transform: translateX(0);
+        }
+
+        .burger-btn {
+            span {
+                transform: rotateY(90deg);
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &::before {
+                transition: all 0.3s ease-in-out;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+
+            &::after {
+                bottom: 50%;
+                transition: all 0.3s ease-in-out 1s;
+                transform: translateY(50%) rotate(-45deg);
+            }
+        }
     }
 
     &__holder {
@@ -25,7 +42,7 @@
         @include breakpoint($tablet-bp) {
             height: 65px;
         }
-    
+
         @include breakpoint($mobile-bp) {
             height: 50px;
         }
@@ -35,42 +52,47 @@
         font-family: $josefin_sans-700;
         font-size: 24px;
         color: $text-white;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
 
         @include breakpoint($tablet-bp) {
             font-size: 21px;
-            letter-spacing: .08em;
+            letter-spacing: 0.08em;
         }
-    
+
         @include breakpoint($mobile-bp) {
             font-size: 18px;
-            letter-spacing: .06em;
+            letter-spacing: 0.06em;
         }
+    }
+
+    &__nav {
+        z-index: -1;
     }
 
     &__list {
         display: flex;
         color: $text-white;
-        transition: color .2s linear;
+        transition: color 0.2s linear;
 
         &:hover {
             color: rgba(255, 255, 255, 0.512);
         }
-        
+
         @include breakpoint($tablet-bp) {
-            opacity: 0;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: absolute;
-            bottom: 90px;
-            right: 50%;
-            padding: 30px 0;
-            transform: translate(50%, 100%);
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-100%);
+            padding: 70px 0;
             width: 65%;
-            background-color: rgba(84, 115, 253, .85);
-            transition: all .2s ease-in-out;
+            background-color: rgba(84, 115, 253, 0.85);
+            transition: all 0.3s ease-in-out;
             pointer-events: none;
 
             &:hover {
@@ -79,7 +101,7 @@
         }
 
         @include breakpoint($mobile-bp) {
-            width: 80%;
+            width: 100%;
         }
     }
 
@@ -97,7 +119,7 @@
         text-transform: uppercase;
         font-family: $aleo-400;
         font-size: 14px;
-        transition: color .2s linear;
+        transition: color 0.2s linear;
 
         &:hover {
             color: $text-white;
@@ -109,15 +131,16 @@
         height: 20px;
         position: absolute;
         bottom: 50%;
-        right: 50px;
+        right: 0;
         transform: translateY(50%);
         background-color: transparent;
         outline: none;
         border: 0;
-        transition: all .3s linear;
+        transition: all 0.3s linear;
         visibility: hidden;
         opacity: 0;
         display: none;
+        transition: all 0.3s ease-in-out;
 
         @include breakpoint($tablet-bp) {
             display: block;
@@ -128,13 +151,13 @@
         span,
         &::before,
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             height: 2px;
             width: 100%;
             background-color: $text-white;
-            transition: all .3s linear;
+            transition: all 0.3s linear;
         }
 
         span {
