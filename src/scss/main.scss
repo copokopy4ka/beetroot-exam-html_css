@@ -80,6 +80,10 @@ input::-ms-clear {
     display: none;
 }
 
+input {
+    -webkit-appearance: none;
+}
+
 button {
     cursor: pointer;
 }
