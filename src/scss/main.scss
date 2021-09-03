@@ -168,7 +168,8 @@ p {
         padding: 18px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         box-shadow: 0 0 5px 2px rgba(84, 116, 253, 0.4);
 
         &:after {
@@ -234,7 +235,8 @@ p {
         font-size: 10px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: #4560db;
     }
 

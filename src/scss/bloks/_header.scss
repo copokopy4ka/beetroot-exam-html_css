@@ -29,12 +29,14 @@
         }
 
         .burger-btn {
-            transform: rotate(180deg);
+            transform: rotate(-180deg);
+            transform-origin: center center;
 
             span {
                 transform: rotateY(90deg);
                 opacity: 0;
                 visibility: hidden;
+                transition-duration: .2s;
             }
 
             &::before {
@@ -116,7 +118,8 @@
             transform: translateY(100%);
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: rgba(255, 255, 255, 0.3);
         }
 
@@ -178,7 +181,8 @@
         font-size: 14px;
         transition: color 0.2s linear;
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: $text-white;
         }
     }
@@ -202,6 +206,12 @@
             display: block;
             visibility: visible;
             opacity: 1;
+        }
+
+        &:hover span,
+        &:focus span {
+            transform: translateY(-50%) rotateY(180deg);
+            transition-duration: .6s;
         }
 
         span,

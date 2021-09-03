@@ -113,7 +113,8 @@
         align-items: center;
         position: relative;
 
-        &:hover {
+        &:hover,
+        &:focus {
 
             &:after {
                 transform: rotateY(0);
