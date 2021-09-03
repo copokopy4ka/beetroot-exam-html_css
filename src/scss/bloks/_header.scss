@@ -1,18 +1,10 @@
 .header {
     background-color: $blue;
-    position: absolute;
-    top: calc(100vh - 80px);
+    position: sticky;
+    top: 0;
     right: 0;
     left: 0;
     z-index: 5;
-
-    @include breakpoint($tablet-bp) {
-        top: calc(100vh - 65px);
-    }
-
-    @include breakpoint($mobile-bp) {
-        top: calc(100vh - 50px);
-    }
 
     &.active {
        .header__list {
@@ -80,6 +72,10 @@
             background-color: rgba(84, 115, 253, .85);
             transition: all .2s ease-in-out;
             pointer-events: none;
+
+            &:hover {
+                color: $text-white;
+            }
         }
 
         @include breakpoint($mobile-bp) {
@@ -92,7 +88,7 @@
 
         @include breakpoint($tablet-bp) {
             margin: 0;
-            width: 80%;
+            width: 50%;
         }
     }
 

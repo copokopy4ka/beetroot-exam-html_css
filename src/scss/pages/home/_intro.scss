@@ -1,8 +1,16 @@
 .intro {
-    height: 100vh;
+    height: calc(100vh - 80px);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+
+    @include breakpoint($tablet-bp) {
+        height: calc(100vh - 65px);
+    }
+
+    @include breakpoint($mobile-bp) {
+        height: calc(100vh - 50px);
+    }
 
     .container {
         display: flex;
@@ -107,7 +115,7 @@
         &:hover {
 
             span {
-                transform: scale(1.2);
+                transform: scale(1.05);
             }
             
             i {

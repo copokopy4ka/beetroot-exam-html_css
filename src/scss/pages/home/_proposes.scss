@@ -25,6 +25,11 @@
         padding: 50px 30px;
         background-color: rgb(35, 35, 35, .9);
         width: 50%;
+        transition: background-color .3s ease-in-out;
+
+        &:hover {
+            background-color: rgb(35, 35, 35, .96);
+        }
 
         @include breakpoint($laptop-bp) {
             width: 65%;
