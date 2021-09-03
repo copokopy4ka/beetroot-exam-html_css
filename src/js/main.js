@@ -1,6 +1,5 @@
 $( document ).ready(function() {
-    $('.js-burger-btn').on('click', function(e) {
-        console.log(e.target);
+    $('.js-burger-btn').on('click', function() {
         if($('.js-header').hasClass('active')) {
             $('.js-header').removeClass('active');
             $('body').removeClass('menu-opened');
@@ -16,5 +15,14 @@ $( document ).ready(function() {
             $('body').removeClass('menu-opened'); 
             $('.js-header').removeClass('active'); 
         } 
+    });
+});
+
+$( document ).ready(function() {
+    $('.js-header-link').on('click', function() {
+        if($('.js-header').hasClass('active')) {
+            $('.js-header').removeClass('active');
+            $('body').removeClass('menu-opened');
+        }
     });
 });

@@ -152,23 +152,28 @@ p {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
     transition: all 0.2s linear;
 
     @include breakpoint($tablet-bp) {
-        width: 60%;
+        width: 65%;
         font-size: 13px;
         letter-spacing: 0.06em;
         padding: 20px;
     }
 
     @include breakpoint($mobile-bp) {
-        font-size: 10px;
+        font-size: 11px;
         letter-spacing: 0.05em;
         padding: 18px;
     }
 
     &:hover {
-        box-shadow: 0 0 2px 4px rgba(84, 116, 253, 0.5);
+        box-shadow: 0 0 5px 2px rgba(84, 116, 253, 0.4);
+
+        &:after {
+            transform: rotateY(0);
+        }
     }
 
     &_why-us {
@@ -181,6 +186,19 @@ p {
         @include breakpoint($mobile-bp) {
             margin: 0 auto;
         }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(to right, rgba(73,107,254,1) 0%,rgba(73,107,254,1) 12%,rgba(255,255,255,0.75) 33%,rgba(255,255,255,1) 50%,rgba(255,255,255,0.75) 67%,rgba(84,116,253,1) 88%,rgba(84,116,253,1) 100%);
+        transform: rotateY(90deg);
+        transform-origin: center;
+        transition: transform .5s ease-in-out;
     }
 }
 
