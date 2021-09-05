@@ -1,22 +1,23 @@
 .intro {
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 
     @include breakpoint($tablet-bp) {
-        height: calc(100vh - 65px);
+        min-height: calc(100vh - 65px);
     }
 
     @include breakpoint($mobile-bp) {
-        height: calc(100vh - 50px);
+        min-height: calc(100vh - 50px);
     }
 
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
     }
 
     &__row {
@@ -26,7 +27,7 @@
     }
 
     &__title-holder {
-        max-width: 330;
+        max-width: 330px;
         margin: 0 0 50px;
         text-align: center;
         color: $text-white;
@@ -58,7 +59,7 @@
         }
     }
 
-    &__form {
+    &__search-holder {
         display: flex;
         margin: 0 0 120px;
 
